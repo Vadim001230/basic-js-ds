@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class Queue {
  constructor() {
-    this.queue = new ListNode();
+    this.queue = new ListNode()
   }
 
   getUnderlyingList() {
@@ -26,19 +26,21 @@ class Queue {
     let node = new ListNode(value)
     if (this.queue == null) {
       this.queue = node;
+      return this.queue;
     } else {
-      let curr = this.queue;
-      while (curr.next) {
-        curr = curr.next;
+      let current = this.queue;
+      while (current.next) {
+        current = current.next;
       }
-      curr.next = node;
+      current.next = node;
+      return this.queue;
     } 
   }
 
   dequeue() {
-    let el = this.queue.value;
+    let pow = this.queue.value;
     this.queue = this.queue.next;
-    return el;
+    return pow;
   }
 }
 
